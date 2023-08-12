@@ -2,28 +2,29 @@
   gather_facts: no
   vars:
     redmine_port: 3000
+
+  vars_files:
+    - group_vars/webservers/vault.yml
   roles:
     - role: geerlingguy.pip
       vars:
         pip_install_packages:
           - name: docker
-            state: latest
     - role: geerlingguy.docker
 
   tasks:
-    - name: update .env
+    - name: load docker-compose
       ansible.builtin.template:
         src: .env.j2
         dest: .env
       tags: deploy
 
-    - name: load docker-compose file
-      ansible.builtin.copy:
-        src: docker-compose.yml
-        dest: docker-compose.yml
-      tags: deploy
-
     - name: deploy redmine
-      ansible.builtin.command: "{{item}}"
-      loop: ["docker-compose build", "docker-compose up -d"]
+      community.docker.docker_container:
+        name: redmine
+        image: "redmine:latest"
+        restart_policy: always
+        state: started
+        env_file: .env
+        ports: "3000:3000"
       tags: deploy

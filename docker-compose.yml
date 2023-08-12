@@ -1,8 +1,0 @@
-version: '3.1'
-
-services:
-  redmine:
-    image: redmine
-    restart: always
-    ports:
-      - "${REDMINE_PORT}:3000"
