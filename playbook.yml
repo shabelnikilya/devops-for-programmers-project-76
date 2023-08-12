@@ -1,8 +1,29 @@
 - hosts: all
-
+  gather_facts: no
+  vars:
+    redmine_port: 3000
   roles:
     - role: geerlingguy.pip
       vars:
         pip_install_packages:
           - name: docker
             state: latest
+    - role: geerlingguy.docker
+
+  tasks:
+    - name: update .env
+      ansible.builtin.template:
+        src: .env.j2
+        dest: .env
+      tags: deploy
+
+    - name: load docker-compose file
+      ansible.builtin.copy:
+        src: docker-compose.yml
+        dest: docker-compose.yml
+      tags: deploy
+
+    - name: deploy redmine
+      ansible.builtin.command: "{{item}}"
+      loop: ["docker-compose build", "docker-compose up -d"]
+      tags: deploy
