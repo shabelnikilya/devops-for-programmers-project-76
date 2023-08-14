@@ -4,7 +4,7 @@
   ansible.builtin.import_playbook: prepare-servers.yml
 
 - name: deploy redmine servers
-  ansible.builtin.import_playbook: redmine.yml
+  ansible.builtin.import_playbook: deploy.yml
 
 - name: start health check
   ansible.builtin.import_playbook: datadog.yml

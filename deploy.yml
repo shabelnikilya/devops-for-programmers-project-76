@@ -14,5 +14,6 @@
         state: started
         recreate: true
         env_file: .env
-        ports: "{{ redmine_port }}:3000"
+        ports:
+          - "{{ redmine_port }}:3000"
       become: true
