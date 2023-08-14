@@ -6,5 +6,3 @@
         pip_install_packages:
           - name: docker
     - role: geerlingguy.docker
-      vars:
-        docker_install_compose: false
