@@ -3,4 +3,13 @@ DB_DATABASE: "{{ VAULT_DB_DATABASE }}"
 DB_USERNAME: "{{ VAULT_DB_USERNAME }}"
 DB_PASSWORD: "{{ VAULT_DB_PASSWORD }}"
 DB_PORT: "{{ VAULT_DB_PORT }}"
+datadog_api_key: "{{ VAULT_DATADOG_API_KEY }}"
 redmine_port: 3000
+datadog_checks:
+  http_check:
+    init_config:
+    instances:
+      - name: http_check
+        url: "http://localhost:{{ redmine_port }}"
+        timeout: 5
+        method: GET

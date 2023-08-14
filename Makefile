@@ -12,6 +12,9 @@ prepare-servers:
 deploy-redmine:
 	ansible-playbook --vault-password-file .password redmine.yml -i inventory.ini
 
+run-datadog:
+	ansible-playbook --vault-password-file .password datadog.yml -i inventory.ini
+
 run-redmine:
 	ansible-playbook --vault-password-file .password playbook.yml -i inventory.ini
 
