@@ -16,4 +16,3 @@
         env_file: .env
         ports: "{{ redmine_port }}:3000"
       become: true
-      become_method: sudo
