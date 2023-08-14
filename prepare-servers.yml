@@ -5,4 +5,8 @@
       vars:
         pip_install_packages:
           - name: docker
-    - role: geerlingguy.docker
+
+  tasks:
+    - name: install pip docker
+      ansible.builtin.pip:
+        name: docker
