@@ -4,13 +4,13 @@ install-role:
 	ansible-galaxy install -r requirements.yml
 
 add-user:
-	ansible-playbook --vault-password-file .password user.yml -i inventory.ini -u root -e "username=$(USERNAME)"
+	ansible-playbook --vault-password-file .password user.yml -i inventory.ini -e "username=$(USERNAME)"
 
 prepare-servers:
 	ansible-playbook --vault-password-file .password prepare-servers.yml -i inventory.ini
 
 deploy-redmine:
-	ansible-playbook --vault-password-file .password redmine.yml -i inventory.ini
+	ansible-playbook --vault-password-file .password deploy.yml -i inventory.ini
 
 run-datadog:
 	ansible-playbook --vault-password-file .password datadog.yml -i inventory.ini
