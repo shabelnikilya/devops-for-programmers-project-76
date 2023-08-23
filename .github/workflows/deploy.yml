@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - '**'
-    paths:
-      - 'group_vars/*'
+#    paths:
+#      - 'group_vars/*'
     tags:
       - '**'
 
