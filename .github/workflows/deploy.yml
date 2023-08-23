@@ -20,7 +20,17 @@ jobs:
       - name: install roles
         run: make install-role
 
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
       - name: prepare servers
         env:
           VAULT_PASSWORD: ${{ secrets.VAULT_SECRET }}
         run: make prepare-servers PASSWORD_FILE=<(echo "$VAULT_PASSWORD")
+
+      - name: Clean up SSH
+        run: |
+          rm -f ~/.ssh/id_rsa
