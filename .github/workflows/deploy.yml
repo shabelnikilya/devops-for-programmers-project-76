@@ -5,7 +5,7 @@ on:
     branches:
       - '**'
     paths:
-      - ./group_vars
+      - 'group_vars/*'
     tags:
       - '**'
 
