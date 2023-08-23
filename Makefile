@@ -8,7 +8,7 @@ add-user:
 	ansible-playbook --vault-password-file $(PASSWORD_FILE) user.yml -i inventory.ini -e "username=$(USERNAME)"
 
 prepare-servers:
-	ansible-playbook --vault-password-file $(PASSWORD_FILE) prepare-servers.yml -i inventory.ini
+	ansible-playbook --vault-password-file $(PASSWORD_FILE) prepare-servers.yml -i inventory.ini -u $(USERNAME)
 
 deploy-redmine:
 	ansible-playbook --vault-password-file $(PASSWORD_FILE) deploy.yml -i inventory.ini
