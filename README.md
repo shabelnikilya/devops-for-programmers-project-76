@@ -1,6 +1,11 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/shabelnikilya/devops-for-programmers-project-76/workflows/hexlet-check/badge.svg)](https://github.com/shabelnikilya/devops-for-programmers-project-76/actions)
 
+### Deploy application
+[![Actions Status](https://github.com/shabelnikilya/devops-for-programmers-project-76/workflows/deploy/badge.svg)](https://github.com/shabelnikilya/devops-for-programmers-project-76/actions)
+
+
+
 ## Deploy docker image using Ansible
 
 Project to automate the deployment of the Redmine application in DigitalOcean using Ansible.

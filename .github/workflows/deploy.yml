@@ -1,0 +1,21 @@
+name: deploy application
+
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - ./group_vars
+    tags:
+      - '**'
+
+jobs:
+  push-app:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: copy git directory
+        uses: actions/checkout@v3
+
+      - name: install roles
+        run: make install-role
