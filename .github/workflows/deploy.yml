@@ -3,7 +3,7 @@ name: deploy application
 on:
   push:
     branches:
-      - 'master'
+      - '**'
     paths:
       - ./group_vars
     tags:

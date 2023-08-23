@@ -2,7 +2,7 @@
 [![Actions Status](https://github.com/shabelnikilya/devops-for-programmers-project-76/workflows/hexlet-check/badge.svg)](https://github.com/shabelnikilya/devops-for-programmers-project-76/actions)
 
 ### Deploy application
-[![Actions Status](https://github.com/shabelnikilya/devops-for-programmers-project-76/workflows/deploy/badge.svg)](https://github.com/shabelnikilya/devops-for-programmers-project-76/actions)
+[![Deploy status](https://github.com/shabelnikilya/devops-for-programmers-project-76/actions/workflows/deploy/badge.svg)](https://github.com/shabelnikilya/devops-for-programmers-project-76/actions)
 
 
 
